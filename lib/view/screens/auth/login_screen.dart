@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GlithEffect(child: const Text("INDITOK",style: TextStyle(fontWeight: FontWeight.w900,fontSize: 40),)),
+            GlithEffect(child: const Text("INDITOK",style: TextStyle(fontWeight: FontWeight.w900,fontSize: 30),)),
             const SizedBox(height: 30,),
             Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20),
