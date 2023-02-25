@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1089853910096",
+    "project_id": "inditok-550eb",
+    "storage_bucket": "inditok-550eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089853910096:android:53745b4823ffe0cf227555",
+        "android_client_info": {
+          "package_name": "com.sahuinfotec.inditok"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089853910096-vfgeoar2uq8etuc9b923nf8kcq9s26t1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx1aWg79Ju8wrSCNeL-AYVZcyzGAiMpeU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089853910096-vfgeoar2uq8etuc9b923nf8kcq9s26t1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
