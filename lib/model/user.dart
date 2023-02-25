@@ -19,6 +19,7 @@ class myUser {
     "name": name,
     "email": email,
     "profilePic": profilePhoto,
+    "uid": uid,
   };
 
   // Firebase(Map) - App(myUser)
