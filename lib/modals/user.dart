@@ -15,10 +15,10 @@ class myUser {
 
   // App - Firebase(Map)
   Map<String, dynamic> toJson() => {
-        'name': username,
-        'email': email,
-        'profilePic': profilePhoto,
-        'uid': uid,
+        "name": username,
+        "email": email,
+        "profilePic": profilePhoto,
+        "uid": uid,
       };
 
 
