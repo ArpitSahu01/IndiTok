@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:inditok/model/user.dart';
+import 'package:inditok/view/screens/auth/login_screen.dart';
+import 'package:inditok/view/screens/home.dart';
 
 class AuthController extends GetxController{
 
@@ -19,6 +21,29 @@ class AuthController extends GetxController{
     proimg = img;
   }
 
+  //User Persistance
+
+  // _user - Nadi
+  // _user.bindStream - Nadi me color dekho
+  //  ever - Aap Ho
+  late Rx<User?> _user;
+  @override
+  void onReady() {
+    // TODO: implement onReady
+    super.onReady();
+    _user = Rx<User?>(FirebaseAuth.instance.currentUser);
+    _user.bindStream(FirebaseAuth.instance.authStateChanges());
+    ever(_user, _setInitialView);
+  }
+
+  _setInitialView(User? user){
+    if(user == null){
+      Get.offAll(()=>LoginScreen());
+    }else{
+      Get.offAll(()=>HomeScreen());
+    }
+  }
+// User Registor
   void signUp(String username, String email, String password, File? image) async{
 
     try{
@@ -36,6 +61,19 @@ class AuthController extends GetxController{
       Get.snackbar("Error Occurred", e.toString());
     }
 
+  }
+
+  void logIn(String email,String password) async{
+
+    try{
+      if(email.isNotEmpty && password.isNotEmpty){
+        await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+      }else{
+        Get.snackbar('Error Occurred', 'Please enter all the fields');
+      }
+    }catch(e){
+      Get.snackbar('Error Occurred', e.toString());
+    }
   }
 
   Future<String> _uploadProPic(File image) async{

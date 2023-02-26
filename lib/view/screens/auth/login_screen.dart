@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inditok/%20controller/auth_controller.dart';
 import 'package:inditok/view/widgets/glitch.dart';
 import 'package:inditok/view/widgets/text_input.dart';
 
@@ -29,7 +30,9 @@ class LoginScreen extends StatelessWidget {
                 child: TextInput(controller: _passwordController, myIcon: Icons.password, myLabelText: "Password",toHide: true,),
             ),
             const SizedBox(height: 30,),
-           ElevatedButton(onPressed: (){}, child: Container(
+           ElevatedButton(onPressed: (){
+             AuthController.instance.logIn(_emailController.text, _passwordController.text);
+           }, child: Container(
                padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 10),
                child: const Text("LOGIN",style: TextStyle(fontSize: 15),),),),
           ],
