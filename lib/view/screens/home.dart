@@ -1,12 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:inditok/view/widgets/glitch.dart';
 
-class HomeScreen extends StatelessWidget {
+import '../../constants.dart';
+import '../widgets/customAddIcon.dart';
+
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+
+  int pageInx = 0;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: GlithEffect(child: Text('Welcome to HomeScreen',style: TextStyle(fontWeight: FontWeight.w900,fontSize:30)))));
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: backgroundColor,
+        currentIndex: pageInx,
+        onTap: (index){
+          setState((){
+            pageInx = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home,size: 25,),
+              label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search,size: 25,),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: customAddIcon(),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.message,size: 25,),
+            label: 'Messages',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person,size: 25,),
+            label: 'Profile',
+          ),
+        ],
+      ),
+      body: Center(child: GlithEffect(child: Text(pageIndexValues[pageInx],style: TextStyle(fontWeight: FontWeight.w900,fontSize: 30),))),
+    );
   }
 }
