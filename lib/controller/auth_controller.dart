@@ -18,7 +18,7 @@ class AuthController extends GetxController{
     picimg = img;
   }
 
-  SignUp(String username,String email,String password,File? image) async{
+  void SignUp(String username,String email,String password,File? image) async{
     print('runTryBlock');
     try{
       if(username.isNotEmpty && email.isNotEmpty && password.isNotEmpty && image != null){
@@ -28,11 +28,10 @@ class AuthController extends GetxController{
         myUser user = myUser(username: username, email: email, profilePhoto: downloadUrl, uid: credential.user!.uid);
         await FirebaseFirestore.instance.collection("users").doc(credential.user!.uid).set(user.toJson());
       }else{
-        print('else block is working');
         Get.snackbar('This snackbar', 'Amazing');
       }
     }catch(e){
-      print(e);
+      print("This is exception : $e");
       Get.snackbar('This snackbar', 'Amazing');
     }
   }
