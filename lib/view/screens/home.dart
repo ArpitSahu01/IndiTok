@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: Center(child: GlithEffect(child: Text(pageIndexValues[pageInx],style: TextStyle(fontWeight: FontWeight.w900,fontSize: 30),))),
+      body: pageIndexValues[pageInx],
     );
   }
 }

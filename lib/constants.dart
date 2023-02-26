@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:inditok/view/screens/add_vedio.dart';
 
 
 getRandomColor() =>[
@@ -14,9 +15,9 @@ var buttonColor = Colors.red[400];
 const borderColor = Colors.grey;
 
 var pageIndexValues=[
-  'Home',
-  'Search',
-  'Add real',
-  'Message',
-  'Profile',
+  Center(child: Text('Home')),
+  Center(child: Text('Search')),
+  AddVideoScreen(),
+  Center(child: Text('Message')),
+  Center(child: Text('Profile')),
 ];
