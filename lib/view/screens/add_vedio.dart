@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:inditok/constants.dart';
+import 'dart:io';
+import 'package:inditok/view/screens/addcaption_screen.dart';
 
 class AddVideoScreen extends StatelessWidget {
   const AddVideoScreen({Key? key}) : super(key: key);
@@ -10,13 +12,13 @@ class AddVideoScreen extends StatelessWidget {
     return showDialog(context: context, builder: (ctx)=>SimpleDialog(
       children: [
         SimpleDialogOption(
-          onPressed: ()=>videoPicker(ImageSource.gallery).then(
+          onPressed: ()=>videoPicker(ImageSource.gallery,context).then(
             Navigator.of(context).pop()
           ),
           child: Text("Gallery"),
         ),
         SimpleDialogOption(
-          onPressed: ()=>videoPicker(ImageSource.camera).then(
+          onPressed: ()=>videoPicker(ImageSource.camera,context).then(
               Navigator.of(context).pop()
           ),
           child: Text("Camera"),
@@ -31,10 +33,11 @@ class AddVideoScreen extends StatelessWidget {
     ));
   }
   
-  videoPicker(ImageSource source) async{
+  videoPicker(ImageSource source,BuildContext context) async{
     final video = await ImagePicker().pickVideo(source: source);
     if(video !=null){
       Get.snackbar('Video Selected', video.path);
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>addCaptionScreen(videoFile: File(video.path), videoPath: video.path)));
     }else{
       Get.snackbar('Error in selecting Video', 'Please choose a different video');
     }
