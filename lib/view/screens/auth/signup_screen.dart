@@ -38,22 +38,22 @@ class SignupScreen extends StatelessWidget {
               const SizedBox(height: 10,),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20),
-                child: TextInput(controller: _emailController, myIcon: Icons.email, myLabelText: "Email"),
+                child: TextInputField(controller: _emailController, myIcon: Icons.email, myLabelText: "Email"),
               ),
               const SizedBox(height: 20,),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20),
-                child: TextInput(controller: _setPasswordController, myIcon: Icons.password, myLabelText: "Set Password",toHide: true,),
+                child: TextInputField(controller: _setPasswordController, myIcon: Icons.password, myLabelText: "Set Password",toHide: true,),
               ),
               const SizedBox(height: 20,),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20),
-                child: TextInput(controller: _confirmPasswordController, myIcon: Icons.password, myLabelText: "Confirm Password",toHide: true,),
+                child: TextInputField(controller: _confirmPasswordController, myIcon: Icons.password, myLabelText: "Confirm Password",toHide: true,),
               ),
               const SizedBox(height: 20,),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20),
-                child: TextInput(controller: _userController, myIcon: Icons.person, myLabelText: "UserName",),
+                child: TextInputField(controller: _userController, myIcon: Icons.person, myLabelText: "UserName",),
               ),
               const SizedBox(height: 30,),
               ElevatedButton(onPressed: (){

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:inditok/constants.dart';
 
-class TextInput extends StatelessWidget {
+class TextInputField extends StatelessWidget {
 
   final TextEditingController controller;
   final IconData myIcon;
   final String myLabelText;
   final bool toHide;
 
-  const TextInput({
+  const TextInputField({
     Key? key,
     required this.controller,
     required this.myIcon,

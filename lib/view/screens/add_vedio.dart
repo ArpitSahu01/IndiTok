@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:inditok/constants.dart';
+import 'dart:io';
+import 'package:inditok/view/screens/addcaption_screen.dart';
 
 import 'add_caption_screen.dart';
 
@@ -38,7 +40,7 @@ class AddVideoScreen extends StatelessWidget {
     final video = await ImagePicker().pickVideo(source: source);
     if(video !=null){
       Get.snackbar('Video Selected', video.path);
-      Navigator.push(context,MaterialPageRoute(builder: (context)=>addCaption_Screen(videoFile: File(video.path), videoPath: video.path)));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>addCaptionScreen(videoFile: File(video.path), videoPath: video.path)));
     }else{
       Get.snackbar('Error in selecting Video', 'Please choose a different video');
     }

@@ -22,12 +22,12 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 30,),
             Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20),
-                child: TextInput(controller: _emailController, myIcon: Icons.email, myLabelText: "Email"),
+                child: TextInputField(controller: _emailController, myIcon: Icons.email, myLabelText: "Email"),
             ),
             const SizedBox(height: 20,),
             Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20),
-                child: TextInput(controller: _passwordController, myIcon: Icons.password, myLabelText: "Password",toHide: true,),
+                child: TextInputField(controller: _passwordController, myIcon: Icons.password, myLabelText: "Password",toHide: true,),
             ),
             const SizedBox(height: 30,),
            ElevatedButton(onPressed: (){
