@@ -1,6 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:inditok/constants.dart';
 import 'package:video_player/video_player.dart';
+
+import '../widgets/text_input.dart';
 
 class addCaptionScreen extends StatefulWidget {
 
@@ -16,6 +19,9 @@ class addCaptionScreen extends StatefulWidget {
 class _addCaptionScreenState extends State<addCaptionScreen> {
 
 late VideoPlayerController _videoPlayerController;
+TextEditingController songNameController = TextEditingController();
+TextEditingController captionController = TextEditingController();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -32,10 +38,38 @@ late VideoPlayerController _videoPlayerController;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: MediaQuery.of(context).size.height/1.5,
-        child: VideoPlayer(_videoPlayerController),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height/1.5,
+              child: VideoPlayer(_videoPlayerController),
+            ),
+            Container(
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height/3.5,
+              margin: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                TextInputField(
+                  controller: songNameController,
+                  myIcon: Icons.music_note,
+                  myLabelText: 'Song Name',
+                ),
+                const SizedBox(height: 10,),
+                TextInputField(
+                  controller: captionController,
+                  myIcon: Icons.closed_caption,
+                  myLabelText: 'Caption',
+                ),
+                const SizedBox(height: 10,),
+                ElevatedButton(onPressed: (){}, style: ButtonStyle(backgroundColor: MaterialStateProperty.all(buttonColor)),child: const Text('Upload')),
+              ],),
+            )
+          ],
+        ),
       ),
     );
   }
