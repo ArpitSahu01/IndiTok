@@ -6,7 +6,6 @@ import 'package:inditok/constants.dart';
 import 'dart:io';
 import 'package:inditok/view/screens/addcaption_screen.dart';
 
-import 'add_caption_screen.dart';
 
 class AddVideoScreen extends StatelessWidget {
   const AddVideoScreen({Key? key}) : super(key: key);
